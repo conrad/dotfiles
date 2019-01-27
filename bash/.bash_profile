@@ -1,16 +1,20 @@
-if [[ -f ~/.bash_prompt ]]; then
-  . ~/.bash_prompt
+if [[ -f ~/.bash/.bash_prompt ]]; then
+  . ~/.bash/.bash_prompt
 fi
 
 # export PS1="[\[\e[36m\]\A\[\e[m\]]  \[\e[37m\]\w >>> \[\e[m\]"
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.bash/.bash_aliases ]; then
+    . ~/.bash/.bash_aliases
 fi
+
+# Make sure these files are in your .bash directory (found here: https://github.com/git/git/tree/master/contrib/completion)
+source ~/.bash/git-completion.bash
+source ~/.bash/git-prompt.sh
 
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
-  
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/mattconrad/google-cloud-sdk/path.bash.inc' ]; then source '/Users/mattconrad/google-cloud-sdk/path.bash.inc'; fi
 

@@ -1,0 +1,22 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.wordWrap": "on",
+  "window.zoomLevel": 0,
+  "npm-intellisense.importQuotes": "'",
+  //"editor.stablePeek": false,
+  "csharp.suppressDotnetRestoreNotification": true,
+  "csharp.suppressDotnetInstallWarning": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": false,
+  "git.path": "/usr/bin/",
+  "git.ignoreMissingGitWarning": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false
+}

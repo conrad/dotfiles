@@ -1,5 +1,4 @@
 # shellcheck shell=bash
-export PATH="$PATH:~/Code/lolcat"
 
 # Customize bash prompt
 # lolcat reference: http://apple.stackexchange.com/a/266112/216733
@@ -7,7 +6,6 @@ export PATH="$PATH:~/Code/lolcat"
 # must use PS1 escapes or else line wrap issue.
 PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+"; $PROMPT_COMMAND"}"
 PS1_COLORIZE_COMMAND='__ps1_lolcat'
-PS1_COLORIZE_COMMAND='__ps1_lolcat_installed_gem'
 # shellcheck disable=SC2034
 PS1_DEBUG_COMMAND='__ps1_debug'
 
@@ -70,30 +68,27 @@ PS1_GREEN_ESCAPED='\['$TERM_GREEN'\]'
 # In $PS1_DEBUG_ENABLED, the interpret phase is still run by PS1. The echo
 # phase is emulated by wrapping $PS1 in double quotes: ...<<<"'PS1'"...
 unset PS1
-#PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-\h:\W \u\\$}")
-PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-[\A] \w  \$}")
-#"[\[\e[36m\]\A\[\e[m\]]  \[\e[37m\]\w >>> \[\e[m\]"
-
+PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-\h:\W \u\\$}")
 PS1_SPACING=' '
 PS1=''
 
-#PS1_HISTORY_NUMBER='\!)'
-#PS1+='$(eval "$PS1_COLORIZE_COMMAND" <<<"'$PS1_HISTORY_NUMBER'")'
-#PS1+=$PS1_SPACING
+PS1_HISTORY_NUMBER='\!)'
+PS1+='$(eval "$PS1_COLORIZE_COMMAND" <<<"'$PS1_HISTORY_NUMBER'")'
+PS1+=$PS1_SPACING
 
 # Rule is to use PS1_{COLOR}_ESCAPED if the escape sequence appears in PS1, but
 # use PS1_{COLOR}_LITERAL if it doesn't e.g. it's inside a function.
-#PS1+='['
-#PS1+='$('
-#PS1+='if ((PS1_exit == 0)); then '
-#PS1+="echo '$PS1_GREEN_ESCAPED'; "
-#PS1+='else '
-#PS1+="echo '$PS1_RED_ESCAPED'; fi"
-#PS1+=')'
-#PS1+='$PS1_exit'
-#PS1+=$PS1_DEFAULT_ESCAPED
-#PS1+=']'
-#PS1+=$PS1_SPACING
+PS1+='['
+PS1+='$('
+PS1+='if ((PS1_exit == 0)); then '
+PS1+="echo '$PS1_GREEN_ESCAPED'; "
+PS1+='else '
+PS1+="echo '$PS1_RED_ESCAPED'; fi"
+PS1+=')'
+PS1+='$PS1_exit'
+PS1+=$PS1_DEFAULT_ESCAPED
+PS1+=']'
+PS1+=$PS1_SPACING
 
 PS1+='$(eval "$PS1_COLORIZE_COMMAND" <<<"'$PS1_COLORLESS'")'
 PS1+=$PS1_SPACING
@@ -110,9 +105,6 @@ __ps1_color_wrap_non_printing() {
   local REGEX=$ESC'\[[[:digit:];]*m'
   local REPLACE=$SOH'&'$STX
   sed "s/$REGEX/$REPLACE/g"
-}
-__ps1_lolcat_installed_gem() {
-  lolcat -f -F 6 -p 25 | __ps1_color_wrap_non_printing
 }
 __ps1_lolcat_ruby() {
   rbenv exec lolcat -f -F 6 -p 25 | __ps1_color_wrap_non_printing

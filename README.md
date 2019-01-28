@@ -4,6 +4,10 @@ These are the configs and dotfiles I've wanted to port around onto different mac
 
 - Follow these directions to set up autocompletion with git: https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks#Auto-Completion
 
+## Setting up bash prompt
+
+- You need to install `lolcat` in some form and then choose which one you're using in the `.bash_prompt` file. `lolcat-c` is the fastest. Currently, it's set just to use `lolcat`, which is easy to install with `gem install lolcat`.
+
 ## Note on .bashrc & .bash_profile
 
 - The usual convention is that `.bash_profile` will be executed at login shells, i.e. interactive shells where you login with your user name and password at the beginning. When you ssh into a remote host, it will ask you for user name and password (or some other authentication) to log in, so it is a login shell.

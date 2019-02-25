@@ -13,6 +13,11 @@ PS1_DEBUG_COMMAND='__ps1_debug'
 
 PS1_DEBUG='false'
 
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 __prompt_command() {
   # Save last exit code
   PS1_exit=$?
@@ -71,7 +76,7 @@ PS1_GREEN_ESCAPED='\['$TERM_GREEN'\]'
 # phase is emulated by wrapping $PS1 in double quotes: ...<<<"'PS1'"...
 unset PS1
 #PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-\h:\W \u\\$}")
-PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-[\A] \w  \$}")
+PS1_COLORLESS=$(sed 's/[[:space:]]*$//' <<<"${PS1:-[\A] \w \$}")  # '$(parse_git_branch)' should go in here somehow!!!
 #"[\[\e[36m\]\A\[\e[m\]]  \[\e[37m\]\w >>> \[\e[m\]"
 
 PS1_SPACING=' '
@@ -96,6 +101,8 @@ PS1=''
 #PS1+=$PS1_SPACING
 
 PS1+='$(eval "$PS1_COLORIZE_COMMAND" <<<"'$PS1_COLORLESS'")'
+PS1+=$PS1_SPACING
+PS1+='$(parse_git_branch)'
 PS1+=$PS1_SPACING
 
 PS1_DEBUG_DISABLED=$PS1

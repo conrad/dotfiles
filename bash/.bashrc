@@ -1,7 +1,16 @@
-export PS1="\[\033[34m\][\A] \u@\h: \w >>>\e[m\] "
+export PS1="\[\033[34m\]\[[\A] \u@\h: \w >\e[m\] "
 
-if [[ -f ~/.bash/.bash_prompt ]]; then
-  . ~/.bash/.bash_prompt
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+# shopt -s checkwinsize
+
+
+# if [[ -f ~/.bash/.bash_prompt ]]; then
+#   . ~/.bash/.bash_prompt
+# fi
+
+if [[ -f ~/.bash/.bash_prompt_simple ]]; then
+  . ~/.bash/.bash_prompt_simple
 fi
 
 if [ -f ~/.bash/.bash_aliases ]; then

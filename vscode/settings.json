@@ -1,22 +1,31 @@
-// Place your settings in this file to overwrite the default settings
 {
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": true,
-  "editor.wordWrap": "on",
-  "window.zoomLevel": 0,
-  "npm-intellisense.importQuotes": "'",
-  //"editor.stablePeek": false,
-  "csharp.suppressDotnetRestoreNotification": true,
-  "csharp.suppressDotnetInstallWarning": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true,
-  "workbench.activityBar.visible": false,
-  "git.path": "/usr/bin/",
-  "git.ignoreMissingGitWarning": true,
-  "workbench.iconTheme": "material-icon-theme",
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "diffEditor.ignoreTrimWhitespace": false
+  "window.zoomLevel": 0,
+  "terminal.integrated.rendererType": "dom",
+  "bazel.buildifierPath": "/home/mattconrad/thirdwave/tools/fix_buildifier.sh",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length=120"
+  ],
+  "python.pythonPath": "python3",
+  "go.toolsGopath": "/usr/local/go/bin",
+  "go.gopath": "/home/katarina/go",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 2000,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.tcc": "cpp",
+    "deque": "cpp",
+    "vector": "cpp",
+    "system_error": "cpp",
+    "*.jsonnet": "jsonnet"
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "files.trimFinalNewlines": true,
+  "editor.wordWrap": "on",
+  "workbench.startupEditor": "newUntitledFile",
+  "prettier.jsxBracketSameLine": true,
+  "prettier.trailingComma": "es5"
 }
